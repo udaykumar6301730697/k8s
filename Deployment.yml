@@ -1,19 +1,19 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Replicaset
 metadata:
-name: my-deployment
+  name: my-replicaset
 spec:
-replicas: 3
+  replicas: 3
 selector:
-matchLables:
-app: my-app
+  matchLables:
+  app: my-app
 template:
-metadata:
-lables:
-app: my-app
+  metadata:
+  lables:
+  app: my-app
 spec:
-containers:
--name: my-container
-image: nginx:latest
-ports:
--containerPort: 8080
+  containers:
+  -name: my-container
+  image: nginx:latest
+  ports:
+  -containerPort: 8080
